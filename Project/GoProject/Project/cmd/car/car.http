@@ -1,0 +1,48 @@
+### Create Car Item
+POST localhost:8081/api/v1/cars
+Content-Type: application/json
+
+{
+  "title": "Bmw x5",
+  "description": "1 description",
+  "year": 2019
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Get Car Item
+GET localhost:8081/api/v1/cars/1
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Update Car Item
+PUT localhost:8081/api/v1/cars/1
+Content-Type: application/json
+
+{
+  "year": 2019
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
+
+### Delete Car Item
+DELETE localhost:8081/api/v1/cars/1
+Content-Type: application/json
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+%}
